@@ -6,23 +6,24 @@
   </head>
   <body>
     <h1> Cat Hotel </h1>
-    <form id="newOwner">
+    <form id="ownerIntakeForm">
+
       <label for="firstName">First Name:</label>
       <input type="text" id="firstName" />
-
       <label for="lastName">Last Name:</label>
       <input type="text" id="lastName" />
-    </form>
-    <h1> Pet intake </h1>
-    <select>
-        <option value="none">Owner Name</option>
-        <option value="Sci-Fi">Joe Smos</option>
-        <option value="Mystery">Larona Baye</option>
-        <option value="Fantasy">Gillian Zhao</option>
-        <option value="Potato">Potato</option>
-        </select>
+      <button id="submitNewOwner">SUBMIT</button>
 
-        <div class="petIntakeForm">
+    </form>
+    <form class="petIntakeForm">
+
+      <select id="ownerSelector" name="ownerSelector">
+        <option value="john">Volvo</option>
+        <option value="bill">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="potato">Audi</option>
+      </select>
+
           <label for="PetName">Pet Name:</label>
           <input type="text" id="PetName" name="PetName" class="form-control"/>
 
@@ -30,7 +31,10 @@
           <input type="text" id="genre" name="Color" class="form-control"/>
 
           <label for="Breed">Breed:</label>
-          <input type="text" id="Breed" name="Breed" class="form-control"/>          
-        </div>
+          <input type="text" id="Breed" name="Breed" class="form-control"/>
+
+          <button id="submitPet">SUBMIT PET</button>
+    </form>
+
   </body>
 </html>
