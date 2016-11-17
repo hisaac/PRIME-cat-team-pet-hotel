@@ -15,5 +15,6 @@ app.get('/pets', function(req, res) {
 app.use(express.static('./public/scripts'));
 
 app.listen(process.env.PORT || port);
+
 app.get('/', index);
 console.log("Listening on port: ", port);
