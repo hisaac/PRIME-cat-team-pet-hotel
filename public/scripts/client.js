@@ -17,12 +17,23 @@ function getPets() {
   })
 }
 
-function appendPets(pets) {
-for (var i = 0; i < books.length; i++) {
-  $el("tbody").append('<tr><td>)
 
-  var book = books[i];
-  $el.data('id', book.id);
-  console.log("Date from DB: ", book.published);
+function appendBooks(pets) {
+  $("#pet-list").empty();
 
-}
+  for (var i = 0; i < pets.length; i++) {
+
+    $el = $('tbody')
+    var pet = pets[i];
+    //$el.data('id', pet.id);
+
+
+
+    $el.append('<tr><td>' + pet.owner + '</>');
+    $el.append('<td>' + pet.name + '</td>');
+    $el.append('<td>' + pet.breed + '</td>');
+    $el.append('<td>' + pet.color + '</td>');
+    $el.append('<td><button class="go">GO</button></td>');
+    $el.append('<td><button class="delete">DELETE</button></td>'); //Delete BUTTON
+    $el.append('<td><td><button class="inOut">In</button></td></td></tr>'); //Check in/out BUTTON
+  }
