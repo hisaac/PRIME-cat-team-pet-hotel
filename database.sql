@@ -11,6 +11,7 @@ CREATE TABLE pets (
   name VARCHAR(50),
   breed VARCHAR(50),
   color VARCHAR(50),
+  checked_in BOOLEAN,
   owner_id integer REFERENCES owners
 );
 
