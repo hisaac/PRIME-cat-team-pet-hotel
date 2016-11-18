@@ -1,11 +1,6 @@
 $(document).ready(function() {
-<<<<<<< HEAD
-  getPets();
+  // getPets();
 
-=======
-   getPets();
-   console.log('document ready');
->>>>>>> master
 
 });
 
@@ -14,7 +9,6 @@ function getPets() {
     type: 'GET',
     url: '/pets',
     success: function(pets) {
-      console.log('pets get ajax success');
       appendPets(pets);
     },
     error: function() {
