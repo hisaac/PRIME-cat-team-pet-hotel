@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
    getPets();
    $('#submitNewOwner').on('click', function() {
      event.preventDefault();
@@ -11,6 +12,7 @@ $(document).ready(function() {
    $('#submitPet').on('click', function() {
 
    });
+
 });
 
 function getPets() {
@@ -18,7 +20,7 @@ function getPets() {
     type: 'GET',
     url: '/pets',
     success: function(pets) {
-      console.log('pets get ajax success');
+      getOwners();
       appendPets(pets);
     },
     error: function() {
@@ -26,6 +28,9 @@ function getPets() {
     }
   });
 }
+
+
+
 
 // - put request  - //
 // function updatePets() {
@@ -39,7 +44,7 @@ function getPets() {
 //         pets[field.name] = field.value;
 //     });
 //     console.log(book);
-//
+// //
 //     $.ajax({
 //         type: 'PUT',
 //         url: '/pets/' + id,
@@ -53,6 +58,27 @@ function getPets() {
 //         }
 //     });
 // }
+
+function getOwners () {
+  $.ajax({
+    type: 'GET',
+    url: '/pets',
+    success: function(table) {
+        // ownerDropdown(table);
+        for (var i = 0; i < table.length; i++) {
+          console.log("test" + i);
+          $('#ownerSelector').append('<option>' + table[i].first_name + " " + table[i].last_name + '</option>');
+        }
+
+        console.log("This is the table: ", table);
+    },
+    error: function() {
+        console.log('Database error');
+    }
+
+})
+}
+
 
 
 function appendPets(pets) {
@@ -75,9 +101,6 @@ function appendPets(pets) {
     );
   }
 }
-// function deleteRow(this){
-//
-// }
 
 function newOwner(ownerName) {
     $('#ownerSelector').append('<option value="' + ownerName.firstName + ' ' + ownerName.lastName + '">' +
