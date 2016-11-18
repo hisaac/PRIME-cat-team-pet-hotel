@@ -1,8 +1,5 @@
 $(document).ready(function() {
 
-  // getPets();
-  getOwners();
-
    getPets();
    $(".go").on('click', function() {
 
@@ -25,6 +22,7 @@ function getPets() {
     type: 'GET',
     url: '/pets',
     success: function(pets) {
+      getOwners();
       appendPets(pets);
     },
     error: function() {
@@ -105,6 +103,3 @@ function appendPets(pets) {
     );
   }
 }
-// function deleteRow(this){
-//
-// }
