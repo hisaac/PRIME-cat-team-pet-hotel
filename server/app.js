@@ -11,6 +11,9 @@ app.use(bodyParser.json());
 
 app.use('/pets', pets);
 
+app.post('/owners', pets);
+
+
 app.use(express.static('./public/scripts'));
 app.use(express.static('./public/vendor'));
 app.use(express.static('./public/styles'));

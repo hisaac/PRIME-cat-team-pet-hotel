@@ -12,6 +12,13 @@ $(document).ready(function() {
      console.log('ownerName: ', ownerName);
    });
    $('#submitPet').on('click', function() {
+     event.preventDefault();
+     var petInfo = {};
+     petInfo.name = $('#petName').val();
+     petInfo.color = $('#color').val();
+     petInfo.breed = $('#breed').val();
+     petinfo.ownerId = $('select :selected').val();
+     submitPet(petInfo);
 
    });
 
@@ -90,20 +97,53 @@ function appendPets(pets) {
     $el = $('tbody');
     var pet = pets[i];
     //$el.data('id', pet.id);
-
+    var status = 'Check In';
+    if (pet.checked_in === true) {
+      status = 'Check Out'
+    }
     $el.append(
       '<tr><td>' + pet.first_name + ' ' + pet.last_name +  '</td>' +
       '<td><input type="text" value="' + pet.name + '"></td>' +
       '<td><input type="text" value="' + pet.breed + '"></td>' +
       '<td><input type="text" value="' + pet.color + '"></td>' +
       '<td><button class="go">GO</button></td>' +
-      '<td><button class="delete">DELETE</button></td>' +
-      '<td><button class="inOut">In</button></td></tr>'
+      '<td><button class="delete" id="' + pet.id + '">DELETE</button></td>' +
+      '<td><button class="inOut">' + status + '</button></td></tr>'
     );
+  }
 }
 
 function newOwner(ownerName) {
     $('#ownerSelector').append('<option value="' + ownerName.firstName + ' ' + ownerName.lastName + '">' +
     ownerName.firstName + ' ' + ownerName.lastName + '</option>');
 }
+
+function newOwner(owner) {
+    $.ajax({
+      type: 'POST',
+      url: '/owners',
+      data: owner,
+      success: function(response) {
+        console.log('owner post success');
+        getOwners();
+      },
+      error: function() {
+        console.log('could not post a new owner');
+      }
+    });
+
+}
+
+function submitPet(petInfo) {
+  $.ajax({
+    type: 'POST',
+    url: '/pets',
+    data: petInfo,
+    success: function(response) {
+      getPets();
+    },
+    error: function() {
+      console.log('could not post a new pet');
+    }
+  });
 }
