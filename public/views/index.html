@@ -17,22 +17,34 @@
     </form>
     <h1> Pet intake </h1>
     <select>
-        <option value="none">Owner Name</option>
-        <option value="Sci-Fi">Joe Smos</option>
-        <option value="Mystery">Larona Baye</option>
-        <option value="Fantasy">Gillian Zhao</option>
-        <option value="Potato">Potato</option>
-        </select>
+      <option value="none">Owner Name</option>
+      <option value="Sci-Fi">Joe Smos</option>
+      <option value="Mystery">Larona Baye</option>
+      <option value="Fantasy">Gillian Zhao</option>
+      <option value="Potato">Potato</option>
+    </select>
+    <div class="petIntakeForm">
+      <label for="PetName">Pet Name:</label>
+      <input type="text" id="PetName" name="PetName" class="form-control"/>
 
-        <div class="petIntakeForm">
-          <label for="PetName">Pet Name:</label>
-          <input type="text" id="PetName" name="PetName" class="form-control"/>
+      <label for="Color">Color:</label>
+      <input type="text" id="genre" name="Color" class="form-control"/>
 
-          <label for="Color">Color:</label>
-          <input type="text" id="genre" name="Color" class="form-control"/>
-
-          <label for="Breed">Breed:</label>
-          <input type="text" id="Breed" name="Breed" class="form-control"/>
-        </div>
+      <label for="Breed">Breed:</label>
+      <input type="text" id="Breed" name="Breed" class="form-control"/>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Owner</th>
+          <th>Pet</th>
+          <th>Breed</th>
+          <th>Color</th>
+          <th>Update</th>
+          <th>Delete</th>
+          <th>Check In/Out</th>
+        </tr>
+      </thead>
+    </table>
   </body>
 </html>
