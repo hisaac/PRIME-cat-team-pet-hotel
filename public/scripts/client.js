@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  getPets();
+  // getPets();
 
 
 });
@@ -35,3 +35,7 @@ function appendPets(pets) {
     $el.append('<td><button class="delete">DELETE</button></td>'); //Delete BUTTON
     $el.append('<td><button class="inOut">In</button></td></tr>'); //Check in/out BUTTON
   }
+
+function deleteRow(this){
+
+}

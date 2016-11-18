@@ -6,14 +6,14 @@ var connectionString = 'postgres://localhost:5432/sigma';
 
 router.get('/', function(req, res) {
 
-  // get books from DB
+  // get pets from DB
   pg.connect(connectionString, function(err, client, done) {
     if(err) {
       console.log('connection error - getpets: ', err);
       res.sendStatus(500);
     }
 
-    client.query('SELECT * FROM books WHERE genre = $1', [filter], function(err, result) {
+    client.query('SELECT * FROM pets', function(err, result) {
       done(); // close the connection.
 
       // console.log('the client!:', client);
