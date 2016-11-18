@@ -14,6 +14,7 @@ $(document).ready(function() {
      petInfo.name = $('#petName').val();
      petInfo.color = $('#color').val();
      petInfo.breed = $('#breed').val();
+     petinfo.ownerId = $('select :selected').val();
      submitPet(petInfo);
 
    });
@@ -92,6 +93,7 @@ function newOwner(owner) {
       data: owner,
       success: function(response) {
         console.log('owner post success');
+        getOwners();
       },
       error: function() {
         console.log('could not post a new owner');
