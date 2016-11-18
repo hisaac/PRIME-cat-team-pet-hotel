@@ -38,8 +38,8 @@ router.post('/', function(req, res) {
         }
 
         client.query(
-            'INSERT INTO pets (name, breed, color)' +
-            'VALUES ($1, $2, $3)', [newPet.name, newPet.breed,  newPet.color],
+            'INSERT INTO pets (name, breed, color, owner_id)' +
+            'VALUES ($1, $2, $3, $4)', [newPet.name, newPet.breed,  newPet.color, newPet.owner_id],
             function(err, result) {
                 done();
 
