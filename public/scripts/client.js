@@ -1,5 +1,7 @@
-$(document).ready(function() {
+var pets = {};
 
+$(document).ready(function() {
+  getOwners();
    getPets();
    $('#submitNewOwner').on('click', function() {
      event.preventDefault();
@@ -20,7 +22,7 @@ function getPets() {
     type: 'GET',
     url: '/pets',
     success: function(pets) {
-      getOwners();
+      pets = pets;
       appendPets(pets);
     },
     error: function() {
@@ -65,9 +67,11 @@ function getOwners () {
     url: '/pets',
     success: function(table) {
         // ownerDropdown(table);
+        $('ownerSelector').empty();
+
         for (var i = 0; i < table.length; i++) {
           console.log("test" + i);
-          $('#ownerSelector').append('<option>' + table[i].first_name + " " + table[i].last_name + '</option>');
+          $('#ownerSelector').append('<option value="'+ table[i].id + '">' + table[i].first_name + " " + table[i].last_name + '</option>');
         }
 
         console.log("This is the table: ", table);
@@ -75,17 +79,14 @@ function getOwners () {
     error: function() {
         console.log('Database error');
     }
-
-})
+  });
 }
 
 
 
 function appendPets(pets) {
   $("tbody").empty();
-
   for (var i = 0; i < pets.length; i++) {
-
     $el = $('tbody');
     var pet = pets[i];
     //$el.data('id', pet.id);
@@ -99,10 +100,10 @@ function appendPets(pets) {
       '<td><button class="delete">DELETE</button></td>' +
       '<td><button class="inOut">In</button></td></tr>'
     );
-  }
 }
 
 function newOwner(ownerName) {
     $('#ownerSelector').append('<option value="' + ownerName.firstName + ' ' + ownerName.lastName + '">' +
-     ownerName.firstName + ' ' + ownerName.lastName + '</option>');
+    ownerName.firstName + ' ' + ownerName.lastName + '</option>');
+}
 }
