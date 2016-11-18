@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
    getPets();
    $('#submitNewOwner').on('click', function() {
      event.preventDefault();
@@ -18,6 +19,7 @@ $(document).ready(function() {
      submitPet(petInfo);
 
    });
+
 });
 
 function getPets() {
@@ -25,7 +27,7 @@ function getPets() {
     type: 'GET',
     url: '/pets',
     success: function(pets) {
-      console.log('pets get ajax success');
+      getOwners();
       appendPets(pets);
     },
     error: function() {
@@ -33,6 +35,9 @@ function getPets() {
     }
   });
 }
+
+
+
 
 // - put request  - //
 // function updatePets() {
@@ -46,7 +51,7 @@ function getPets() {
 //         pets[field.name] = field.value;
 //     });
 //     console.log(book);
-//
+// //
 //     $.ajax({
 //         type: 'PUT',
 //         url: '/pets/' + id,
@@ -61,6 +66,27 @@ function getPets() {
 //     });
 // }
 
+function getOwners () {
+  $.ajax({
+    type: 'GET',
+    url: '/pets',
+    success: function(table) {
+        // ownerDropdown(table);
+        for (var i = 0; i < table.length; i++) {
+          console.log("test" + i);
+          $('#ownerSelector').append('<option>' + table[i].first_name + " " + table[i].last_name + '</option>');
+        }
+
+        console.log("This is the table: ", table);
+    },
+    error: function() {
+        console.log('Database error');
+    }
+
+})
+}
+
+
 
 function appendPets(pets) {
   $("tbody").empty();
@@ -70,21 +96,22 @@ function appendPets(pets) {
     $el = $('tbody');
     var pet = pets[i];
     //$el.data('id', pet.id);
-
+    var status = 'Check In';
+    if (pet.checked_in === true) {
+      status = 'Check Out'
+    }
     $el.append(
       '<tr><td>' + pet.first_name + ' ' + pet.last_name +  '</td>' +
       '<td><input type="text" value="' + pet.name + '"></td>' +
       '<td><input type="text" value="' + pet.breed + '"></td>' +
       '<td><input type="text" value="' + pet.color + '"></td>' +
       '<td><button class="go">GO</button></td>' +
-      '<td><button class="delete">DELETE</button></td>' +
-      '<td><button class="inOut">In</button></td></tr>'
+      '<td><button class="delete" id="' + pet.id + '">DELETE</button></td>' +
+      '<td><button class="inOut">' + status + '</button></td></tr>'
     );
+
   }
 }
-// function deleteRow(this){
-//
-// }
 
 function newOwner(owner) {
     $.ajax({
