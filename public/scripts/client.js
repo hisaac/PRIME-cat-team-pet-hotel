@@ -1,5 +1,20 @@
 $(document).ready(function() {
+
   // getPets();
+
+   getPets();
+   $(".go").on('click', function() {
+
+   });
+   $(".delete").on('click', function() {
+
+   });
+   $(".inOut").on('click', function() {
+
+   });
+   $("select").change('click', function() {
+
+   });
 
 
 });
@@ -54,13 +69,15 @@ function appendPets(pets) {
     var pet = pets[i];
     //$el.data('id', pet.id);
 
-    $el.append('<tr><td>' + pet.first_name + ' ' + pet.last_name +  '</td>');
-    $el.append('<td>' + pet.name + '</td>');
-    $el.append('<td>' + pet.breed + '</td>');
-    $el.append('<td>' + pet.color + '</td>');
-    $el.append('<td><button class="go">GO</button></td>');
-    $el.append('<td><button class="delete">DELETE</button></td>'); //Delete BUTTON
-    $el.append('<td><button class="inOut">In</button></td></tr>'); //Check in/out BUTTON
+    $el.append(
+      '<tr><td>' + pet.first_name + ' ' + pet.last_name +  '</td>' +
+      '<td><input type="text" value="' + pet.name + '"></td>' +
+      '<td><input type="text" value="' + pet.breed + '"></td>' +
+      '<td><input type="text" value="' + pet.color + '"></td>' +
+      '<td><button class="go">GO</button></td>' +
+      '<td><button class="delete">DELETE</button></td>' +
+      '<td><button class="inOut">In</button></td></tr>'
+    );
   }
 }
 // function deleteRow(this){

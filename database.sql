@@ -23,22 +23,25 @@ CREATE TABLE visits (
   pet_id integer REFERENCES pets(id)
 );
 
-INSERT INTO owners
-VALUES (1, 'Lisa', 'Bonet'),
-(2, 'Charles', 'Darwin'),
-(3, 'George', 'Foreman'),
-(4, 'Lucy', 'Liu');
+-- populate 'owners' table
+INSERT INTO owners (first_name, last_name)
+VALUES ('Lisa', 'Bonet'),
+('Charles', 'Darwin'),
+('George', 'Foreman'),
+('Lucy', 'Liu');
 
-INSERT INTO pets
-VALUES (1, 'charlie', 'spaniel', 'yellow', 'no', 1),
-(2, 'chappy', 'lab', 'blue', 'no', 4),
-(3, 'whiskey', 'mut', 'brown', 'no', 3),
-(4, 'saber', 'beagle', 'greeen', 'no', 2),
-(5, 'avery', 'lab', 'black', 'no', 2);
+-- populate 'pets' table
+INSERT INTO pets (name, breed, color, checked_in, owner_id)
+VALUES ('charlie', 'spaniel', 'yellow', true, 1),
+('chappy', 'lab', 'blue', true, 4),
+('whiskey', 'mut', 'brown', false, 3),
+('saber', 'beagle', 'greeen', true, 2),
+('avery', 'lab', 'black', false, 2);
 
-INSERT INTO visits
-VALUES (1,'2010-03-05', '2010-03-05', 1),
-(2,'2012-02-08', '2012-02-12', 4),
-(3,'2012-02-08', '2012-02-09', 3),
-(4,'2012-03-09', '2012-03-10', 2),
-(5,'2012-02-08', '2012-02-08', 2);
+-- populate 'visits' table
+INSERT INTO visits (checkin_date, checkout_date, pet_id)
+VALUES ('2010-03-05', '2010-03-05', 1),
+('2012-02-08', '2012-02-12', 4),
+('2012-02-08', '2012-02-09', 3),
+('2012-03-09', '2012-03-10', 2),
+('2012-02-08', '2012-02-08', 2);
