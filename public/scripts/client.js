@@ -96,7 +96,10 @@ function appendPets(pets) {
     $el = $('tbody');
     var pet = pets[i];
     //$el.data('id', pet.id);
-
+    var status = 'Check In';
+    if (pet.checked_in === true) {
+      status = 'Check Out'
+    }
     $el.append(
       '<tr><td>' + pet.first_name + ' ' + pet.last_name +  '</td>' +
       '<td><input type="text" value="' + pet.name + '"></td>' +
@@ -104,8 +107,9 @@ function appendPets(pets) {
       '<td><input type="text" value="' + pet.color + '"></td>' +
       '<td><button class="go">GO</button></td>' +
       '<td><button class="delete" id="' + pet.id + '">DELETE</button></td>' +
-      '<td><button class="inOut">In</button></td></tr>'
+      '<td><button class="inOut">' + status + '</button></td></tr>'
     );
+
   }
 }
 
