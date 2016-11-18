@@ -1,6 +1,17 @@
 $(document).ready(function() {
    getPets();
+   $(".go").on('click', function() {
 
+   });
+   $(".delete").on('click', function() {
+
+   });
+   $(".inOut").on('click', function() {
+
+   });
+   $("select").change('click', function() {
+
+   });
 
 });
 
