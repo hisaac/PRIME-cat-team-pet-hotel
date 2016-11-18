@@ -1,18 +1,16 @@
 $(document).ready(function() {
    getPets();
-   $(".go").on('click', function() {
+   $('#submitNewOwner').on('click', function() {
+     event.preventDefault();
+     var ownerName = {};
+     ownerName.firstName = $('#firstName').val();
+     ownerName.lastName = $('#lastName').val();
+     newOwner(ownerName);
+     console.log('ownerName: ', ownerName);
+   });
+   $('#submitPet').on('click', function() {
 
    });
-   $(".delete").on('click', function() {
-
-   });
-   $(".inOut").on('click', function() {
-
-   });
-   $("select").change('click', function() {
-
-   });
-
 });
 
 function getPets() {
@@ -80,3 +78,8 @@ function appendPets(pets) {
 // function deleteRow(this){
 //
 // }
+
+function newOwner(ownerName) {
+    $('#ownerSelector').append('<option value="' + ownerName.firstName + ' ' + ownerName.lastName + '">' +
+     ownerName.firstName + ' ' + ownerName.lastName + '</option>');
+}
