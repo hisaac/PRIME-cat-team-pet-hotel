@@ -5,7 +5,6 @@ var connectionString = 'postgres://localhost:5432/sigma';
 
 
 router.get('/', function(req, res) {
-
   // get pets from DB
   pg.connect(connectionString, function(err, client, done) {
     if(err) {
@@ -13,7 +12,7 @@ router.get('/', function(req, res) {
       res.sendStatus(500);
     }
 
-    client.query('SELECT * FROM pets', function(err, result) {
+    client.query('SELECT * FROM owners LEFT OUTER JOIN pets on owners.id=pets.owner_id;', function(err, result) {
       done(); // close the connection.
 
       // console.log('the client!:', client);
