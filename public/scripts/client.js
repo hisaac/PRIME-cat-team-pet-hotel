@@ -103,7 +103,7 @@ function appendPets(pets) {
       '<td><input type="text" value="' + pet.breed + '"></td>' +
       '<td><input type="text" value="' + pet.color + '"></td>' +
       '<td><button class="go">GO</button></td>' +
-      '<td><button class="delete">DELETE</button></td>' +
+      '<td><button class="delete" id="' + pet.id + '">DELETE</button></td>' +
       '<td><button class="inOut">In</button></td></tr>'
     );
   }
