@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+  getPets();
 
 
 });
@@ -18,7 +18,7 @@ function getPets() {
 }
 
 
-function appendBooks(pets) {
+function appendPets(pets) {
   $("#pet-list").empty();
 
   for (var i = 0; i < pets.length; i++) {
@@ -27,13 +27,11 @@ function appendBooks(pets) {
     var pet = pets[i];
     //$el.data('id', pet.id);
 
-
-
     $el.append('<tr><td>' + pet.owner + '</>');
     $el.append('<td>' + pet.name + '</td>');
     $el.append('<td>' + pet.breed + '</td>');
     $el.append('<td>' + pet.color + '</td>');
     $el.append('<td><button class="go">GO</button></td>');
     $el.append('<td><button class="delete">DELETE</button></td>'); //Delete BUTTON
-    $el.append('<td><td><button class="inOut">In</button></td></td></tr>'); //Check in/out BUTTON
+    $el.append('<td><button class="inOut">In</button></td></tr>'); //Check in/out BUTTON
   }
