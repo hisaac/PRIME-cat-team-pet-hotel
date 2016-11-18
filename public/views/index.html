@@ -6,17 +6,22 @@
   </head>
   <body>
     <h1> Cat Hotel </h1>
-    <form id="ownerIntakeForm">
 
+    <!-- owner intake form -->
+    <form id="ownerIntakeForm">
       <label for="firstName">First Name:</label>
       <input type="text" id="firstName" />
       <label for="lastName">Last Name:</label>
       <input type="text" id="lastName" />
       <button id="submitNewOwner">SUBMIT</button>
-
     </form>
+
+    <h1> Pet intake </h1>
+
+    <!-- Pet Registration -->
     <form class="petIntakeForm">
 
+      <!-- Owner Selector -->
       <select id="ownerSelector" name="ownerSelector">
         <option value="john">Volvo</option>
         <option value="bill">Saab</option>
@@ -24,17 +29,33 @@
         <option value="potato">Audi</option>
       </select>
 
-          <label for="PetName">Pet Name:</label>
-          <input type="text" id="PetName" name="PetName" class="form-control"/>
+      <!-- Pet name input -->
+      <label for="PetName">Pet Name:</label>
+      <input type="text" id="PetName" name="PetName" class="form-control"/>
 
-          <label for="Color">Color:</label>
-          <input type="text" id="genre" name="Color" class="form-control"/>
+      <label for="Color">Color:</label>
+      <input type="text" id="genre" name="Color" class="form-control"/>
 
-          <label for="Breed">Breed:</label>
-          <input type="text" id="Breed" name="Breed" class="form-control"/>
+      <label for="Breed">Breed:</label>
+      <input type="text" id="Breed" name="Breed" class="form-control"/>
 
-          <button id="submitPet">SUBMIT PET</button>
+      <button id="submitPet">SUBMIT PET</button>
     </form>
+
+
+    <table id="pet-list">
+      <thead>
+        <tr>
+          <th>Owner</th>
+          <th>Pet</th>
+          <th>Breed</th>
+          <th>Color</th>
+          <th>Update</th>
+          <th>Delete</th>
+          <th>Check In/Out</th>
+        </tr>
+      </thead>
+    </table>
 
   </body>
 </html>
