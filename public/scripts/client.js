@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
   // getPets();
+  getOwners();
 
    getPets();
    $(".go").on('click', function() {
@@ -32,6 +33,23 @@ function getPets() {
   });
 }
 
+
+// function ownerDropdown(pets) {
+//     $('#ownerSelector').empty()
+//     console.log("first log genreDropdown: ", pets);
+//     $('#ownerSelector').append('<option value="All">'
+//         Owner Names '</option>');
+//     var namesArray = [];
+//     for (var i = 0; i < pets.length; i++) {
+//         namesArray[i] = pets[i].firstName
+//     }
+//     $.unique(namesArray);
+//     console.log("heres the namesArray: ", namesArray);
+//     for (var i = 0; i < namesArray.length; i++) {
+//         $('.selectGenre').append('<option value="' + namesArray[i] + '">' + pets.firstName + ' ' + pets.lastName + '</option>');
+//     }
+
+
 // - put request  - //
 // function updatePets() {
 //     var id = $(this).parent().data('id');
@@ -58,6 +76,26 @@ function getPets() {
 //         }
 //     });
 // }
+
+function getOwners () {
+  $.ajax({
+    type: 'GET',
+    url: '/pets',
+    success: function(table) {
+        // ownerDropdown(table);
+        for (var i = 0; i < table.length; i++) {
+          $('#ownerSelector').append(table[i].first_name + " " + table[i].last_name);
+        }
+
+        console.log("This is the table: ", table);
+    },
+    error: function() {
+        console.log('Database error');
+    }
+
+})
+}
+
 
 
 function appendPets(pets) {
