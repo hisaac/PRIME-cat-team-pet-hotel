@@ -4,8 +4,8 @@ var pg = require('pg');
 var connectionString = 'postgres://localhost:5432/sigma';
 
 
-router.get('/', function(req, res) {
-  // get pets from DB
+router.get('/pets', function(req, res) {
+  console.log('get pets');
   pg.connect(connectionString, function(err, client, done) {
     if(err) {
       console.log('connection error - getpets: ', err);
@@ -21,6 +21,7 @@ router.get('/', function(req, res) {
         console.log('select query error - getpets ', err);
         res.sendStatus(500);
       }
+      console.log('get results,', result.rows);
       res.send(result.rows);
 
     });
