@@ -12,7 +12,7 @@ CREATE TABLE pets (
   breed VARCHAR(50),
   color VARCHAR(50),
   checked_in BOOLEAN DEFAULT true,
-  owner_id integer REFERENCES owners
+  owner_id integer REFERENCES owners(id)
 );
 
 -- create 'visits' table
@@ -20,7 +20,7 @@ CREATE TABLE visits (
   id SERIAL PRIMARY KEY,
   checkin_date DATE,
   checkout_date DATE,
-  pet_id integer REFERENCES pets
+  pet_id integer REFERENCES pets(id)
 );
 
 INSERT INTO owners
@@ -31,7 +31,7 @@ VALUES (1, 'Lisa', 'Bonet'),
 
 INSERT INTO pets
 VALUES (1, 'charlie', 'spaniel', 'yellow', 'no', 1),
-(2, 'chappy', 'lab', 'blue', 'no', 2),
+(2, 'chappy', 'lab', 'blue', 'no', 4),
 (3, 'whiskey', 'mut', 'brown', 'no', 3),
 (4, 'saber', 'beagle', 'greeen', 'no', 2),
 (5, 'avery', 'lab', 'black', 'no', 2);
