@@ -1,7 +1,7 @@
 var express = require("express");
 var app = express();
 var index = require('./routes/index');
-var index = require('./routes/pets');
+var index = require('./modules/pets');
 var bodyParser = require('body-parser');
 var port = 8000;
 

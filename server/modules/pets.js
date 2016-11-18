@@ -13,7 +13,7 @@ router.get('/', function(req, res) {
       res.sendStatus(500);
     }
 
-    client.query('SELECT * FROM books WHERE genre = $1', [filter], function(err, result) {
+    client.query('SELECT * FROM pets', function(err, result) {
       done(); // close the connection.
 
       // console.log('the client!:', client);
