@@ -17,6 +17,33 @@ function getPets() {
   })
 }
 
+// - put request  - //
+function updatePets() {
+    var id = $(this).parent().data('id');
+    console.log(id);
+
+    // - make pet object - //
+    var pets = {};
+    var fields = $(this).parent().children().serializeArray();
+    fields.forEach(function(field) {
+        book[field.name] = field.value;
+    });
+    console.log(book);
+
+    $.ajax({
+        type: 'PUT',
+        url: '/pets/' + id,
+        data: book,
+        success: function(result) {
+            console.log('updated!!!!');
+            getPets();
+        },
+        error: function(result) {
+            console.log('could not update book!');
+        }
+    });
+}
+
 
 function appendPets(pets) {
   $("#pet-list").empty();
