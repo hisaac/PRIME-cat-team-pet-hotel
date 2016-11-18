@@ -1,6 +1,6 @@
 $(document).ready(function() {
    getPets();
-   console.log('document ready');
+
 
 });
 
@@ -57,9 +57,9 @@ function appendPets(pets) {
 
     $el.append(
       '<tr><td>' + pet.first_name + ' ' + pet.last_name +  '</td>' +
-      '<td>' + pet.name + '</td>' +
-      '<td>' + pet.breed + '</td>' +
-      '<td>' + pet.color + '</td>' +
+      '<td><input type="text" value="' + pet.name + '"></td>' +
+      '<td><input type="text" value="' + pet.breed + '"></td>' +
+      '<td><input type="text" value="' + pet.color + '"></td>' +
       '<td><button class="go">GO</button></td>' +
       '<td><button class="delete">DELETE</button></td>' +
       '<td><button class="inOut">In</button></td></tr>'
